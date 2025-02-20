@@ -32,20 +32,30 @@
             margin-bottom: 15px;
             color: #555;
         }
-        select {
+        .document-list {
+            list-style: none;
+            padding: 0;
             width: 90%;
             max-width: 400px;
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            background-color: white;
         }
-        select:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-            outline: none;
+        .document-list li {
+            cursor: pointer;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f4f4f4;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s;
+        }
+        .document-list li:hover {
+            background: #e0e0e0;
+        }
+        .document-list img {
+            width: 24px;
+            height: 24px;
         }
         .iframe-container {
             width: 95vw;
@@ -114,18 +124,22 @@
     <div class="container">
         <h1>📚 Technical English</h1>
         <p>Selecciona un documento para visualizar:</p>
-        
-        <select id="documentSelector" onchange="cambiarDocumento()">
-            <select id="documentSelector" onchange="cambiarDocumento()">
-            <option value="" disabled selected>📂 Selecciona un documento</option>
-            <option value="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIA.pdf&embedded=true">📑 Lista de Asistencia (PDF)</option>
-            <option value="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/INFORME.pdf&embedded=true">📑 Informe Final (PDF)</option>
-            <option value="https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_1_(Traduccion).pptx">📽 Semana 1 - Traducción (PPTX)</option>
-            <option value="https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_2.pptx">📽 Semana 2 - Documentación (PPTX)</option>
-        </select>
 
-        </select>
-        
+        <ul class="document-list">
+            <li onclick="cambiarDocumento('https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIA.pdf&embedded=true')">
+                <img src="img/pdf-icon.png" alt="PDF"> Lista de Asistencia (PDF)
+            </li>
+            <li onclick="cambiarDocumento('https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/INFORME.pdf&embedded=true')">
+                <img src="img/pdf-icon.png" alt="PDF"> Informe Final (PDF)
+            </li>
+            <li onclick="cambiarDocumento('https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_1_(Traduccion).pptx')">
+                <img src="img/powerpoint-icon.png" alt="PPTX"> Semana 1 - Traducción (PPTX)
+            </li>
+            <li onclick="cambiarDocumento('https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_2.pptx')">
+                <img src="img/powerpoint-icon.png" alt="PPTX"> Semana 2 - Documentación (PPTX)
+            </li>
+        </ul>
+
         <div class="iframe-container">
             <div class="loading" id="loading">Cargando documento...</div>
             <iframe id="visor"></iframe>
@@ -134,33 +148,32 @@
     </div>
     
     <script>
-        function cambiarDocumento() {
-            let selector = document.getElementById("documentSelector");
+        function cambiarDocumento(url) {
             let visor = document.getElementById("visor");
             let loading = document.getElementById("loading");
             let reloadBtn = document.getElementById("reloadBtn");
 
-            if (selector.value) {
-                visor.style.display = "none";
-                loading.style.display = "flex";
-                reloadBtn.style.display = "none";
+            visor.style.display = "none";  
+            loading.style.display = "block"; 
+            reloadBtn.style.display = "none"; 
+            
+            visor.src = url;
+            
+            visor.onload = function() {
+                loading.style.display = "none"; 
+                visor.style.display = "block"; 
+            };
 
-                setTimeout(() => {
-                    visor.src = selector.value;
-                    visor.onload = function() {
-                        loading.style.display = "none";
-                        visor.style.display = "block";
-                    };
-                    visor.onerror = function() {
-                        loading.style.display = "none";
-                        reloadBtn.style.display = "block";
-                    };
-                }, 500);
-            }
+            visor.onerror = function() {
+                loading.style.display = "none"; 
+                reloadBtn.style.display = "block"; 
+            };
         }
 
         function recargarDocumento() {
-            cambiarDocumento();
+            let visor = document.getElementById("visor");
+            let url = visor.src;
+            cambiarDocumento(url);
         }
     </script>
 </body>
