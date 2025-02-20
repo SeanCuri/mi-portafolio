@@ -10,39 +10,29 @@
             padding: 0;
             box-sizing: border-box;
         }
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+        body, html {
+            height: 100%;
+            overflow: hidden; /* Evita espacios extra */
             background-color: #f4f4f4;
         }
         .container {
-            width: 95%;
-            max-width: 1200px;
-            margin: auto;
+            width: 100vw;
+            height: 100vh; /* Ocupa toda la pantalla */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         iframe {
-            width: 100%;
-            height: 80vh; /* Se ajusta mejor en pantallas grandes */
+            width: 100vw;
+            height: 100vh; /* Ajuste perfecto */
             border: none;
-            display: block;
-        }
-        @media (max-width: 768px) { /* Ajustes para móviles */
-            iframe {
-                height: 90vh;
-            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Inglés Técnico</h1>
-        <p>Aquí puedes ver los documentos:</p>
-
-        <h2>📑 Documento PDF</h2>
         <iframe src="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIA.pdf&embedded=true"></iframe>
-
-        <h2>📽 Presentación PowerPoint</h2>
-        <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_1_(Traduccion).pptx"></iframe>
     </div>
 </body>
 </html>
