@@ -1,3 +1,152 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Estilos generales */
+body {
+    background: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Encabezado */
+header {
+    background: #007bff;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 600;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor */
+.container {
+    max-width: 800px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* Sección de introducción */
+.intro h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.intro span {
+    color: #007bff;
+    font-weight: 600;
+}
+
+.intro p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Tarjetas de proyectos */
+.projects h3 {
+    margin-top: 40px;
+    font-size: 22px;
+}
+
+.project-list {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    min-width: 250px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card h4 {
+    font-size: 18px;
+    color: #007bff;
+}
+
+.project-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Sección de enlaces */
+.links, .contact {
+    margin-top: 40px;
+}
+
+.links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.links a {
+    color: #007bff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+/* Contacto */
+.contact p {
+    font-size: 16px;
+}
+
+.contact a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    margin-top: 50px;
+    padding: 15px;
+    background: #007bff;
+    color: white;
+    width: 100%;
+    font-size: 14px;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-list {
+        flex-direction: column;
+    }
+
+    .project-card {
+        width: 90%;
+    }
+}
+
+
+
+
+
 /* Estilos generales */
 * {
     margin: 0;
