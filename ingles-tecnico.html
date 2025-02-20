@@ -14,6 +14,8 @@
             height: 100%;
             overflow: hidden; /* Evita espacios extra */
             background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            text-align: center;
         }
         .container {
             width: 100vw;
@@ -21,18 +23,64 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+        h1, p, h2 {
+            margin: 10px 0;
+        }
+        .iframe-container {
+            width: 100vw;
+            height: 80vh; /* Ajusta el tamaño del visor */
+            display: flex;
             justify-content: center;
+            align-items: center;
         }
         iframe {
-            width: 100vw;
-            height: 100vh; /* Ajuste perfecto */
+            width: 95vw;
+            height: 100%;
             border: none;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background: #007BFF;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #0056b3;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <iframe src="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIA.pdf&embedded=true"></iframe>
+        <h1>Inglés Técnico</h1>
+        <p>Aquí puedes ver los documentos:</p>
+
+        <div class="buttons">
+            <button onclick="mostrarPDF()">📑 Ver PDF</button>
+            <button onclick="mostrarPPTX()">📽 Ver Presentación</button>
+        </div>
+
+        <div class="iframe-container">
+            <iframe id="visor" src="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIA.pdf&embedded=true"></iframe>
+        </div>
     </div>
+
+    <script>
+        function mostrarPDF() {
+            document.getElementById("visor").src = "https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIA.pdf&embedded=true";
+        }
+        function mostrarPPTX() {
+            document.getElementById("visor").src = "https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_1_(Traduccion).pptx";
+        }
+    </script>
 </body>
 </html>
