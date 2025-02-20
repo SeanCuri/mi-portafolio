@@ -82,19 +82,19 @@
 </head>
 <body>
     <div class="container">
-        <h1>📚 Inglés Técnico</h1>
+        <h1>📚 Technical English</h1>
         <p>Selecciona un documento para visualizar:</p>
 
         <select id="documentSelector" onchange="cambiarDocumento()">
             <option value="" disabled selected>📂 Selecciona un documento</option>
-            <option value="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIA.pdf&embedded=true">📑 Lista de Asistencia (PDF)</option>
-            <option value="https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_1_(Traduccion).pptx">📽 Semana 1 - Traducción (PPTX)</option>
+            <option value="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIA.pdf&embedded=true">📑Lista de Asistencia (PDF)</option>
+                        <option value="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/INFORME.pdf&embedded=true">📑 Informe Final ejm (PDF)</option>
+            <option value="https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_1_(Traduccion).pptx">📽 WEEK1 TRADUCIDO (PPTX)</option>
             <option value="https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_2.pptx">📽 Semana 2 - Documentación (PPTX)</option>
-            <option value="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/INFORME.pdf&embedded=true">📑 Informe Final (PDF)</option>
         </select>
 
         <div class="iframe-container">
-            <div class="loading" id="loading">Cargando documento...</div>
+            <div class="loading" id="loading">Esperando...</div>
             <iframe id="visor"></iframe>
         </div>
         <button class="reload-btn" id="reloadBtn" onclick="recargarDocumento()">🔄 Recargar</button>
