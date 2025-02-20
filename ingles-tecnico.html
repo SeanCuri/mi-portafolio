@@ -52,12 +52,15 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
         }
         iframe {
             width: 100%;
             height: 100%;
             border: none;
             display: none;
+            background: transparent;
+            aspect-ratio: 16/9; /* Ajusta la proporción del documento */
         }
         .loading {
             position: absolute;
@@ -87,14 +90,14 @@
 
         <select id="documentSelector" onchange="cambiarDocumento()">
             <option value="" disabled selected>📂 Selecciona un documento</option>
-            <option value="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIA.pdf&embedded=true">📑Lista de Asistencia (PDF)</option>
-                        <option value="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/INFORME.pdf&embedded=true">📑 Informe Final ejm (PDF)</option>
-            <option value="https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_1_(Traduccion).pptx">📽 WEEK1 TRADUCIDO (PPTX)</option>
+            <option value="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIA.pdf&embedded=true">📑 Lista de Asistencia (PDF)</option>
+            <option value="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/INFORME.pdf&embedded=true">📑 Informe Final (PDF)</option>
+            <option value="https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_1_(Traduccion).pptx">📽 Semana 1 - Traducción (PPTX)</option>
             <option value="https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_2.pptx">📽 Semana 2 - Documentación (PPTX)</option>
         </select>
 
         <div class="iframe-container">
-            <div class="loading" id="loading">Esperando...</div>
+            <div class="loading" id="loading">Cargando documento...</div>
             <iframe id="visor"></iframe>
         </div>
         <button class="reload-btn" id="reloadBtn" onclick="recargarDocumento()">🔄 Recargar</button>
@@ -102,10 +105,10 @@
 
     <script>
         function cambiarDocumento() {
-            var selector = document.getElementById("documentSelector");
-            var visor = document.getElementById("visor");
-            var loading = document.getElementById("loading");
-            var reloadBtn = document.getElementById("reloadBtn");
+            let selector = document.getElementById("documentSelector");
+            let visor = document.getElementById("visor");
+            let loading = document.getElementById("loading");
+            let reloadBtn = document.getElementById("reloadBtn");
 
             if (selector.value) {
                 visor.style.display = "none";  // Oculta el visor mientras carga
