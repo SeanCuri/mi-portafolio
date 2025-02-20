@@ -1,144 +1,162 @@
-/* Reset básico */
+/* Estilos generales */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
 }
 
-/* Estilos generales */
 body {
-    background: #f9f9f9;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    text-align: center;
     color: #333;
+}
+
+/* Contenedor principal */
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    justify-content: center;
+    height: 100vh;
     padding: 20px;
 }
 
-/* Encabezado */
-header {
-    background: #007bff;
-    color: white;
-    padding: 20px;
-    width: 100%;
+/* Títulos */
+h1 {
     font-size: 24px;
     font-weight: 600;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Contenedor */
-.container {
-    max-width: 800px;
-    width: 100%;
-    margin-top: 30px;
-}
-
-/* Sección de introducción */
-.intro h2 {
-    font-size: 28px;
     margin-bottom: 10px;
 }
 
-.intro span {
-    color: #007bff;
-    font-weight: 600;
-}
-
-.intro p {
+p {
     font-size: 16px;
-    color: #555;
-}
-
-/* Tarjetas de proyectos */
-.projects h3 {
-    margin-top: 40px;
-    font-size: 22px;
-}
-
-.project-list {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 15px;
-    flex-wrap: wrap;
-}
-
-.project-card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 45%;
-    min-width: 250px;
-    transition: transform 0.2s ease-in-out;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-}
-
-.project-card h4 {
-    font-size: 18px;
-    color: #007bff;
-}
-
-.project-card p {
-    font-size: 14px;
     color: #666;
 }
 
-/* Sección de enlaces */
-.links, .contact {
-    margin-top: 40px;
+/* Dropdown */
+.dropdown {
+    position: relative;
+    margin-bottom: 15px;
 }
 
-.links ul {
-    list-style: none;
-    padding: 0;
-}
-
-.links a {
-    color: #007bff;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.links a:hover {
-    text-decoration: underline;
-}
-
-/* Contacto */
-.contact p {
-    font-size: 16px;
-}
-
-.contact a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-/* Footer */
-footer {
-    margin-top: 50px;
-    padding: 15px;
-    background: #007bff;
+.dropbtn {
+    background: linear-gradient(135deg, #007bff, #0056b3);
     color: white;
-    width: 100%;
-    font-size: 14px;
-    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .project-list {
-        flex-direction: column;
-    }
+.dropbtn:hover {
+    transform: scale(1.05);
+}
 
-    .project-card {
-        width: 90%;
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    min-width: 260px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.dropdown-content button {
+    width: 100%;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dropdown-content button img {
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+}
+
+.dropdown-content button:hover {
+    background: #f1f1f1;
+}
+
+/* Contenedor del iframe */
+.iframe-container {
+    width: 90%;
+    max-width: 800px;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: none;
+}
+
+/* Indicador de carga */
+.loading {
+    font-size: 18px;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+
+.loading::after {
+    content: "";
+    width: 18px;
+    height: 18px;
+    border: 3px solid #007bff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Botón de recargar */
+.reload-btn {
+    display: none;
+    margin-top: 15px;
+    padding: 12px 18px;
+    font-size: 14px;
+    background: linear-gradient(135deg, #28a745, #218838);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.reload-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .iframe-container {
+        height: 60vh;
     }
 }
