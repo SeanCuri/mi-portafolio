@@ -116,17 +116,13 @@
         <p>Selecciona un documento para visualizar:</p>
         
         <select id="documentSelector" onchange="cambiarDocumento()">
+            <select id="documentSelector" onchange="cambiarDocumento()">
             <option value="" disabled selected>📂 Selecciona un documento</option>
             <option value="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIA.pdf&embedded=true">📑 Lista de Asistencia (PDF)</option>
             <option value="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/INFORME.pdf&embedded=true">📑 Informe Final (PDF)</option>
-            <ul class="document-list">
-                <li onclick="cambiarDocumento('https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_1_(Traduccion).pptx')">
-                    <img src="img/powerpoint-logo.png" alt="PowerPoint" width="20"> Semana 1 - Traducción (PPTX)
-                </li>
-                <li onclick="cambiarDocumento('https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_2.pptx')">
-                    <img src="img/powerpoint-logo.png" alt="PowerPoint" width="20"> Semana 2 - Documentación (PPTX)
-                </li>
-            </ul>
+            <option value="https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_1_(Traduccion).pptx">📽 Semana 1 - Traducción (PPTX)</option>
+            <option value="https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_2.pptx">📽 Semana 2 - Documentación (PPTX)</option>
+        </select>
 
         </select>
         
