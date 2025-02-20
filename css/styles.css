@@ -25,7 +25,7 @@ header {
     font-weight: bold;
     text-align: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    height: 60px; /* Reducir la altura */
+    height: 40px; /* Reducir la altura */
     display: flex;
     align-items: center;
     justify-content: center;
