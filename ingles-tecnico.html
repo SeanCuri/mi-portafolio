@@ -32,14 +32,49 @@
             margin-bottom: 15px;
             color: #555;
         }
-        select {
-            padding: 10px;
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropbtn {
+            background: white;
+            padding: 12px 20px;
             font-size: 16px;
-            border-radius: 5px;
             border: 1px solid #ccc;
-            background: #fff;
+            border-radius: 5px;
             cursor: pointer;
-            width: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-width: 250px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 250px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+            text-align: left;
+        }
+        .dropdown-content button {
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .dropdown-content button img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+        .dropdown-content button:hover {
+            background-color: #f1f1f1;
         }
         .iframe-container {
             width: 95vw;
@@ -53,6 +88,7 @@
             overflow: hidden;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 10px;
+            margin-top: 10px;
         }
         iframe {
             width: 100%;
@@ -109,21 +145,27 @@
         <h1>📚 Technical English</h1>
         <p>Selecciona un documento para visualizar:</p>
 
-        <select id="documentSelector" onchange="cambiarDocumento()">
-            <option value="" disabled selected>📂 Seleccionar un documento...</option>
-            <option value="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIA.pdf&embedded=true">
-                📄 Lista de Asistencia (PDF)
-            </option>
-            <option value="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/INFORME.pdf&embedded=true">
-                📄 Informe Final (PDF)
-            </option>
-            <option value="https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_1_(Traduccion).pptx">
-                📊 Semana 1 - Traducción (PPTX)
-            </option>
-            <option value="https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_2.pptx">
-                📊 Semana 2 - Documentación (PPTX)
-            </option>
-        </select>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="toggleDropdown()">📂 Seleccionar un documento...</button>
+            <div class="dropdown-content" id="dropdownContent">
+                <button onclick="cambiarDocumento('https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIA.pdf&embedded=true')">
+                    <img src="img/pdf.png" alt="PDF">
+                    Lista de Asistencia
+                </button>
+                <button onclick="cambiarDocumento('https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/INFORME.pdf&embedded=true')">
+                    <img src="img/pdf.png" alt="PDF">
+                    Informe Final
+                </button>
+                <button onclick="cambiarDocumento('https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_1_(Traduccion).pptx')">
+                    <img src="img/ppt.png" alt="PPT">
+                    Semana 1 - Traducción
+                </button>
+                <button onclick="cambiarDocumento('https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_2.pptx')">
+                    <img src="img/ppt.png" alt="PPT">
+                    Semana 2 - Documentación
+                </button>
+            </div>
+        </div>
 
         <div class="iframe-container">
             <div class="loading" id="loading">Cargando documento...</div>
@@ -133,11 +175,12 @@
     </div>
     
     <script>
-        function cambiarDocumento() {
-            let selector = document.getElementById("documentSelector");
-            let url = selector.value;
-            if (!url) return;
+        function toggleDropdown() {
+            let dropdown = document.getElementById("dropdownContent");
+            dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+        }
 
+        function cambiarDocumento(url) {
             let visor = document.getElementById("visor");
             let loading = document.getElementById("loading");
             let reloadBtn = document.getElementById("reloadBtn");
@@ -157,13 +200,22 @@
                 loading.style.display = "none"; 
                 reloadBtn.style.display = "block"; 
             };
+
+            document.querySelector('.dropbtn').innerText = "📂 " + event.target.innerText;
+            document.getElementById("dropdownContent").style.display = "none";
         }
 
         function recargarDocumento() {
             let visor = document.getElementById("visor");
-            let url = visor.src;
-            cambiarDocumento(url);
+            cambiarDocumento(visor.src);
         }
+
+        document.addEventListener("click", function(event) {
+            let dropdown = document.getElementById("dropdownContent");
+            if (!event.target.closest(".dropdown")) {
+                dropdown.style.display = "none";
+            }
+        });
     </script>
 </body>
 </html>
