@@ -32,30 +32,14 @@
             margin-bottom: 15px;
             color: #555;
         }
-        .document-list {
-            list-style: none;
-            padding: 0;
-            width: 90%;
-            max-width: 400px;
-        }
-        .document-list li {
-            cursor: pointer;
+        select {
             padding: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: #f4f4f4;
+            font-size: 16px;
             border-radius: 5px;
-            margin-bottom: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: background 0.3s;
-        }
-        .document-list li:hover {
-            background: #e0e0e0;
-        }
-        .document-list img {
-            width: 24px;
-            height: 24px;
+            border: 1px solid #ccc;
+            background: #fff;
+            cursor: pointer;
+            width: 250px;
         }
         .iframe-container {
             width: 95vw;
@@ -125,20 +109,21 @@
         <h1>📚 Technical English</h1>
         <p>Selecciona un documento para visualizar:</p>
 
-        <ul class="document-list">
-            <li onclick="cambiarDocumento('https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIA.pdf&embedded=true')">
-                <img src="img/pdf-icon.png" alt="PDF"> Lista de Asistencia (PDF)
-            </li>
-            <li onclick="cambiarDocumento('https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/INFORME.pdf&embedded=true')">
-                <img src="img/pdf-icon.png" alt="PDF"> Informe Final (PDF)
-            </li>
-            <li onclick="cambiarDocumento('https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_1_(Traduccion).pptx')">
-                <img src="img/pptx.png" alt="PPTX"> Semana 1 - Traducción (PPTX)
-            </li>
-            <li onclick="cambiarDocumento('https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_2.pptx')">
-                <img src="img/pptx.png" alt="PPTX"> Semana 2 - Documentación (PPTX)
-            </li>
-        </ul>
+        <select id="documentSelector" onchange="cambiarDocumento()">
+            <option value="" disabled selected>📂 Seleccionar un documento...</option>
+            <option value="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIA.pdf&embedded=true">
+                📄 Lista de Asistencia (PDF)
+            </option>
+            <option value="https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/INFORME.pdf&embedded=true">
+                📄 Informe Final (PDF)
+            </option>
+            <option value="https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_1_(Traduccion).pptx">
+                📊 Semana 1 - Traducción (PPTX)
+            </option>
+            <option value="https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_2.pptx">
+                📊 Semana 2 - Documentación (PPTX)
+            </option>
+        </select>
 
         <div class="iframe-container">
             <div class="loading" id="loading">Cargando documento...</div>
@@ -148,7 +133,11 @@
     </div>
     
     <script>
-        function cambiarDocumento(url) {
+        function cambiarDocumento() {
+            let selector = document.getElementById("documentSelector");
+            let url = selector.value;
+            if (!url) return;
+
             let visor = document.getElementById("visor");
             let loading = document.getElementById("loading");
             let reloadBtn = document.getElementById("reloadBtn");
