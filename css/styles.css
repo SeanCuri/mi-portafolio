@@ -12,9 +12,9 @@ body {
     padding: 0;
     background-color: #f9f9f9;
     color: #333;
-    display: flex;            /* Use flexbox for centering */
-    flex-direction: column;   /* Stack elements vertically */
-    min-height: 100vh;        /* Ensure body takes at least full viewport height */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -29,7 +29,7 @@ header {
     max-width: 800px;
     margin: auto;
     padding: 1rem;
-    flex: 1;                /* Allow container to grow and take available space */
+    flex: 1;
 }
 
 section {
@@ -60,8 +60,8 @@ h2, h3 {
 }
 
 .links ul {
-    list-style-type: none;  /* Remove bullet points */
-    padding-left: 0;        /* Remove default padding */
+    list-style-type: none;
+    padding-left: 0;
 }
 
 footer {
