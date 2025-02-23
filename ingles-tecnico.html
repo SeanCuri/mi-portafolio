@@ -39,7 +39,7 @@
 
         h1:hover {
             color: #0056b3; /* Cambio de color al pasar el mouse */
-            transform: scale(1.1); /* Escala al pasar el mouse */
+            transform: scale(1.05); /* Escala al pasar el mouse */
         }
 
         p {
@@ -93,12 +93,11 @@
 
         .dropdown-content button:hover {
             background-color: #f1f1f1; /* Color al pasar el mouse */
-            transform: translateX(5px); /* Desplazamiento hacia la derecha al pasar el mouse */
         }
 
         .iframe-container {
-            width: 90%;
-            max-width: 800px;
+            width: calc(100% - 40px); /* Ajustar ancho para evitar overflow */
+            max-width: 800px; /* Ancho máximo para pantallas grandes */
             height: calc(70vh - 50px); /* Ajustar altura para evitar overflow */
             display: flex;
             align-items: center;
@@ -112,22 +111,57 @@
         iframe {
             width: calc(100% - 30px); /* Ajustar ancho para evitar overflow */
             height: calc(100% - 30px); /* Ajustar altura para evitar overflow */
-            border-radius: inherit; /* Heredar bordes del contenedor */
         }
 
         .loading {
           font-size: 18px; 
           color:#555; 
-          animation: fadeInOut linear infinite; /* Animación de carga */
-          margin-top:-30%; /* Ajustar posición verticalmente */
-          opacity:.8; 
           display:none; 
+          animation-duration:.5s; 
+          animation-name:fading; 
+          animation-iteration-count:none; 
+          animation-fill-mode forwards; 
+          opacity:.8; 
+          margin-top:-30%; /* Ajustar posición verticalmente */
+          
         }
         
-        @keyframes fadeInOut {
+        @keyframes fading {
           from { opacity : .5;}
           to { opacity : .9;}
         }
+        
+        @media (max-width:768px) {
+          h1 {
+              font-size: 2rem; /* Tamaño de fuente más pequeño en móviles */
+          }
+          
+          p {
+              font-size: 1rem; /* Tamaño de fuente más pequeño en móviles */
+          }
+          
+          .dropbtn {
+              padding: 12px; /* Menos padding en móviles */
+              font-size:.9rem ; /* Menor tamaño de fuente en móviles */
+          }
+          
+          .iframe-container {
+              height:auto ; 
+              max-height :60vh ; 
+              margin-top :20%;  
+              width:auto ;  
+              padding :5%;  
+              
+          }
+          
+          iframe {
+              height:auto ; 
+              width:auto ; 
+              max-height :100%;  
+              
+          }
+          
+      }
         
     </style>
 </head>
