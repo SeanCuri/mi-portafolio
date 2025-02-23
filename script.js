@@ -6,7 +6,10 @@ function toggleDropdown() {
 function cambiarDocumento(url) {
     const visor = document.getElementById("visor");
     const loading = document.getElementById("loading");
-    loading.style.display = "flex"; // Cambia a flex para centrar texto
+
+    loading.style.display = "flex"; /* Display flex para centrar el contenido */
+    loading.style.alignItems = "center"; /* Centrar verticalmente */
+    loading.style.justifyContent = "center"; /* Centrar horizontalmente */
     visor.style.display = "none";
     visor.src = url;
 
