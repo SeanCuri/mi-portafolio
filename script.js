@@ -7,9 +7,9 @@ function cambiarDocumento(url) {
     const visor = document.getElementById("visor");
     const loading = document.getElementById("loading");
 
-    loading.style.display = "flex"; /* Display flex para centrar el contenido */
-    loading.style.alignItems = "center"; /* Centrar verticalmente */
-    loading.style.justifyContent = "center"; /* Centrar horizontalmente */
+    loading.style.display = "flex";
+    loading.style.alignItems = "center";
+    loading.style.justifyContent = "center";
     visor.style.display = "none";
     visor.src = url;
 
