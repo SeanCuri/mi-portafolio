@@ -10,12 +10,22 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #f5f7fa;
     color: #333;
-    text-align: center;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    text-align: center; /* Centrar el texto */
+}
+
+.container {
+    width: 100%;
+    max-width: 800px; /* Ancho máximo */
+    margin: 20px auto; /* Centrar y añadir margen superior */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 header {
@@ -129,4 +139,15 @@ iframe {
 @keyframes fading {
     from { opacity: 0.5; }
     to { opacity: 0.9; }
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 768px) {
+    .container {
+        max-width: 900px; /* Aumenta el ancho máximo */
+    }
+
+    .iframe-container {
+        height: 600px; /* Aumenta la altura */
+    }
 }
