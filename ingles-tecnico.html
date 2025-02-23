@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inglés Técnico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,8 +15,8 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f8f9fa;
-            text-align: center;
             color: #333;
+            text-align: center;
         }
 
         .container {
@@ -28,14 +29,16 @@
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 600;
             margin-bottom: 10px;
+            color: #007bff; /* Color principal */
         }
 
         p {
-            font-size: 16px;
+            font-size: 18px;
             color: #666;
+            margin-bottom: 20px;
         }
 
         .dropdown {
@@ -52,22 +55,23 @@
             border-radius: 8px;
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, background-color 0.3s ease;
         }
 
         .dropbtn:hover {
             transform: scale(1.05);
+            background-color: #0056b3; /* Color al pasar el mouse */
         }
 
         .dropdown-content {
             display: none;
             position: absolute;
-            background: white;
+            background-color: white;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             min-width: 260px;
             overflow: hidden;
-            text-align: left;
+            z-index: 1; /* Asegurar que esté por encima de otros elementos */
         }
 
         .dropdown-content button {
@@ -75,14 +79,14 @@
             padding: 12px;
             display: flex;
             align-items: center;
-            background: none;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s ease;
+            background-color: transparent; /* Fondo transparente */
+            border: none; /* Sin borde */
+            cursor: pointer; /* Cursor de mano */
+            transition: background-color 0.3s ease; /* Transición suave */
         }
 
         .dropdown-content button:hover {
-            background: #f1f1f1;
+            background-color: #f1f1f1; /* Color al pasar el mouse */
         }
 
         .iframe-container {
@@ -92,44 +96,23 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            padding: 15px;
-            margin-top: 15px;
+            background-color: white; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+            overflow: hidden; 
         }
 
         iframe {
             width: 100%;
             height: 100%;
-            border: none;
-            display: none;
+            border: none; 
         }
 
         .loading {
-            font-size: 18px;
-            color: #555;
-            display: flex;
-            align-items: center;
+            font-size: 18px; 
+            color:#555; 
         }
-
-        .loading::after {
-            content: "";
-            width: 18px;
-            height: 18px;
-            border: 3px solid #007bff;
-            border-top-color: transparent;
-            border-radius: 50%;
-            display: inline-block;
-            animation: spin 1s linear infinite;
-            margin-left: 10px;
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+        
     </style>
 </head>
 <body>
@@ -138,46 +121,47 @@
         <p>Selecciona un documento para visualizar:</p>
 
         <div class="dropdown">
-            <button class="dropbtn" onclick="toggleDropdown()">📂 Seleccionar un documento</button>
-            <div class="dropdown-content" id="dropdownContent">
-                <button onclick="cambiarDocumento('https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_1_(Traduccion).pptx')">
-                    <img src="img/pptx.png" alt="Icono 1" style="width:20px; vertical-align:middle;"> WEEK 1 TRADUCIDO
-                </button>
-                <button onclick="cambiarDocumento('https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_2 _(Traduccion).pptx')">
-                    <img src="img/pptx.png" alt="Icono 2" style="width:20px; vertical-align:middle;"> WEEK 2 TRADUCIDO
-                </button>
-                <button onclick="cambiarDocumento('https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIAn.pdf&embedded=true')">
-                    <img src="img/pdf.png" alt="Icono 3" style="width:20px; vertical-align:middle;"> Nada
-                </button>
-                <button onclick="cambiarDocumento('https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/INFORMEn.pdf&embedded=true')">
-                    <img src="img/pdf.png" alt="Icono 4" style="width:20px; vertical-align:middle;"> Nada
-                </button>
-            </div>
-        </div>
+          <button class="dropbtn" onclick="toggleDropdown()">📂 Seleccionar un documento</button>
+          <div class="dropdown-content" id="dropdownContent">
+              <button onclick="cambiarDocumento('https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_1_(Traduccion).pptx')">
+                  <img src="img/pptx.png" alt="Icono PPTX" style="width:20px; margin-right:.5rem;"> WEEK 1 TRADUCIDO
+              </button>
+              <button onclick="cambiarDocumento('https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_2 _(Traduccion).pptx')">
+                  <img src="img/pptx.png" alt="Icono PPTX" style="width:20px; margin-right:.5rem;"> WEEK 2 TRADUCIDO
+              </button>
+              <button onclick="cambiarDocumento('https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIAn.pdf&embedded=true')">
+                  <img src="img/pdf.png" alt="Icono PDF" style="width:20px; margin-right:.5rem;"> Nada
+              </button>
+              <button onclick="cambiarDocumento('https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/INFORMEn.pdf&embedded=true')">
+                  <img src="img/pdf.png" alt="Icono PDF" style="width:20px; margin-right:.5rem;"> Nada
+              </button>
+          </div>
+      </div>
 
-        <div class="iframe-container">
-            <div class="loading" id="loading">Cargando documento...</div>
-            <iframe id="visor"></iframe>
-        </div>
+      <div class="iframe-container">
+          <div class="loading" id="loading">Cargando documento...</div>
+          <iframe id="visor"></iframe>
+      </div>
     </div>
-    
-    <script>
-        function toggleDropdown() {
-            let dropdown = document.getElementById("dropdownContent");
-            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-        }
 
-        function cambiarDocumento(url) {
-            let visor = document.getElementById("visor");
-            let loading = document.getElementById("loading");
-            loading.style.display = "block";
-            visor.style.display = "none";
-            visor.src = url;
-            visor.onload = () => {
-                loading.style.display = "none";
-                visor.style.display = "block";
-            };
-        }
+    <script>
+      function toggleDropdown() {
+          const dropdown = document.getElementById("dropdownContent");
+          dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      }
+
+      function cambiarDocumento(url) {
+          const visor = document.getElementById("visor");
+          const loading = document.getElementById("loading");
+          loading.style.display = "block";
+          visor.style.display = "none";
+          visor.src = url;
+
+          visor.onload = () => {
+              loading.style.display = "none";
+              visor.style.display = "block";
+          };
+      }
     </script>
 </body>
 </html>
