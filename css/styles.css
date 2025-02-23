@@ -12,6 +12,9 @@ body {
     color: #333;
     text-align: center;
     min-height: 100vh; /* Asegura que el body ocupe toda la altura de la pantalla */
+    display: flex; /* Usar flexbox para centrar el contenido verticalmente */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
 }
 
 .container {
@@ -19,8 +22,11 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start; /* Alinea los elementos al inicio del contenedor */
-    min-height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 800px; /* Ancho máximo para pantallas grandes */
+    min-height: 90vh; /* Asegura que el contenedor ocupe la altura de la pantalla */
     padding: 20px;
+    margin: 0 auto; /* Centrar horizontalmente en pantallas grandes */
 }
 
 header {
@@ -105,7 +111,7 @@ p {
 .iframe-container {
     width: 90%;
     max-width: 800px;
-    height: 70vh;
+    height: 500px; /* Establecer una altura fija */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,7 +119,7 @@ p {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    margin-top: 20px; /* Agrega un margen superior para separarlo del dropdown */
+    margin-top: 20px;
 }
 
 iframe {
@@ -138,25 +144,26 @@ iframe {
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
+    .container {
+        padding: 10px; /* Reducir el padding en pantallas más pequeñas */
+    }
+
     h1 {
         font-size: 2rem;
     }
+
     p {
         font-size: 1rem;
     }
+
     .dropbtn {
         padding: 12px;
         font-size: 0.9rem;
     }
+
     .iframe-container {
-        height: auto;
-        max-height: 60vh;
-        width: 100%;
-        padding: 5%;
-        margin-top: 10px; /* Agrega un margen superior para separarlo del dropdown */
-    }
-    iframe {
-        height: 100%;
-        width: 100%;
+        width: 100%; /* Ocupar todo el ancho disponible */
+        height: 400px; /* Altura fija para pantallas pequeñas */
+        margin-top: 10px;
     }
 }
