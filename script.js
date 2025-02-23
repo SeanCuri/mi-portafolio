@@ -1,26 +1,17 @@
 function toggleDropdown() {
-    let dropdown = document.getElementById("dropdownContent");
+    const dropdown = document.getElementById("dropdownContent");
     dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
 }
 
 function cambiarDocumento(url) {
-    let visor = document.getElementById("visor");
-    let loading = document.getElementById("loading");
-    let reloadBtn = document.getElementById("reloadBtn");
-
+    const visor = document.getElementById("visor");
+    const loading = document.getElementById("loading");
+    loading.style.display = "flex"; // Cambia a flex para centrar texto
     visor.style.display = "none";
-    loading.style.display = "flex";
-    reloadBtn.style.display = "none";
+    visor.src = url;
 
-    setTimeout(() => {
-        visor.src = url;
-        visor.style.display = "block";
+    visor.onload = () => {
         loading.style.display = "none";
-        reloadBtn.style.display = "inline-block";
-    }, 1500);
-}
-
-function recargarDocumento() {
-    let visor = document.getElementById("visor");
-    visor.src = visor.src;
+        visor.style.display = "block";
+    };
 }
