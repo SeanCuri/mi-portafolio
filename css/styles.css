@@ -70,9 +70,18 @@ h2, h3 {
     transform: translateY(-5px);
 }
 
-.links ul {
-    list-style-type: none;
-    padding-left: 0;
+.links ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block; /* Hace que el enlace ocupe todo el ancho del elemento de lista */
+    padding: 8px 12px; /* Añade un poco de espacio alrededor del texto */
+    border-radius: 5px; /* Añade bordes redondeados */
+    transition: background-color 0.3s ease; /* Añade una transición suave */
+}
+
+.links ul li a:hover {
+    background-color: #f0f0f0; /* Cambia el color de fondo al pasar el mouse */
+    color: #4A90E2;
 }
 
 .contact p {
