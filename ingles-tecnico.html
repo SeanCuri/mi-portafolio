@@ -5,165 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inglés Técnico</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f5f7fa;
-            color: #333;
-            text-align: center;
-            overflow: hidden; /* Evitar scroll en el body */
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            padding: 20px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #007bff; /* Color principal */
-            transition: color 0.3s ease, transform 0.3s ease; /* Animación de color y escala */
-        }
-
-        h1:hover {
-            color: #0056b3; /* Cambio de color al pasar el mouse */
-            transform: scale(1.05); /* Escala al pasar el mouse */
-        }
-
-        p {
-            font-size: 1.25rem;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .dropdown {
-            position: relative;
-            margin-bottom: 15px;
-        }
-
-        .dropbtn {
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            color: white;
-            font-size: 1rem;
-            padding: 15px 25px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s ease, background-color 0.3s ease; /* Transiciones mejoradas */
-        }
-
-        .dropbtn:hover {
-            transform: scale(1.05);
-            background-color: #0056b3; /* Color al pasar el mouse */
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            min-width: 260px;
-            z-index: 1; /* Asegurar que esté por encima de otros elementos */
-        }
-
-        .dropdown-content button {
-            width: 100%;
-            padding: 12px;
-            display: flex;
-            align-items: center;
-            background-color: transparent; /* Fondo transparente */
-            border: none; /* Sin borde */
-            cursor: pointer; /* Cursor de mano */
-            transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave */
-        }
-
-        .dropdown-content button:hover {
-            background-color: #f1f1f1; /* Color al pasar el mouse */
-        }
-
-        .iframe-container {
-            width: calc(100% - 40px); /* Ajustar ancho para evitar overflow */
-            max-width: 800px; /* Ancho máximo para pantallas grandes */
-            height: calc(70vh - 50px); /* Ajustar altura para evitar overflow */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: white; 
-            border-radius: 10px; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
-            overflow: hidden; 
-        }
-
-        iframe {
-            width: calc(100% - 30px); /* Ajustar ancho para evitar overflow */
-            height: calc(100% - 30px); /* Ajustar altura para evitar overflow */
-        }
-
-        .loading {
-          font-size: 18px; 
-          color:#555; 
-          display:none; 
-          animation-duration:.5s; 
-          animation-name:fading; 
-          animation-iteration-count:none; 
-          animation-fill-mode forwards; 
-          opacity:.8; 
-          margin-top:-30%; /* Ajustar posición verticalmente */
-          
-        }
-        
-        @keyframes fading {
-          from { opacity : .5;}
-          to { opacity : .9;}
-        }
-        
-        @media (max-width:768px) {
-          h1 {
-              font-size: 2rem; /* Tamaño de fuente más pequeño en móviles */
-          }
-          
-          p {
-              font-size: 1rem; /* Tamaño de fuente más pequeño en móviles */
-          }
-          
-          .dropbtn {
-              padding: 12px; /* Menos padding en móviles */
-              font-size:.9rem ; /* Menor tamaño de fuente en móviles */
-          }
-          
-          .iframe-container {
-              height:auto ; 
-              max-height :60vh ; 
-              margin-top :20%;  
-              width:auto ;  
-              padding :5%;  
-              
-          }
-          
-          iframe {
-              height:auto ; 
-              width:auto ; 
-              max-height :100%;  
-              
-          }
-          
-      }
-        
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="container">
@@ -171,47 +13,28 @@
         <p>Selecciona un documento para visualizar:</p>
 
         <div class="dropdown">
-          <button class="dropbtn" onclick="toggleDropdown()">📂 Seleccionar un documento</button>
-          <div class="dropdown-content" id="dropdownContent">
-              <button onclick="cambiarDocumento('https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_1_(Traduccion).pptx')">
-                  <img src="img/pptx.png" alt="Icono PPTX" style="width:20px; margin-right:.5rem;"> WEEK 1 TRADUCIDO
-              </button>
-              <button onclick="cambiarDocumento('https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_2 _(Traduccion).pptx')">
-                  <img src="img/pptx.png" alt="Icono PPTX" style="width:20px; margin-right:.5rem;"> WEEK 2 TRADUCIDO
-              </button>
-              <button onclick="cambiarDocumento('https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIAn.pdf&embedded=true')">
-                  <img src="img/pdf.png" alt="Icono PDF" style="width:20px; margin-right:.5rem;"> Nada
-              </button>
-              <button onclick="cambiarDocumento('https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/INFORMEn.pdf&embedded=true')">
-                  <img src="img/pdf.png" alt="Icono PDF" style="width:20px; margin-right:.5rem;"> Nada
-              </button>
-          </div>
-      </div>
+            <button class="dropbtn" onclick="toggleDropdown()">📂 Seleccionar un documento</button>
+            <div class="dropdown-content" id="dropdownContent">
+                <button onclick="cambiarDocumento('https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_1_(Traduccion).pptx')">
+                    <img src="img/pptx.png" alt="Icono PPTX"> WEEK 1 TRADUCIDO
+                </button>
+                <button onclick="cambiarDocumento('https://view.officeapps.live.com/op/embed.aspx?src=https://seancuri.github.io/mi-portafolio/archivos/WEEK_2 _(Traduccion).pptx')">
+                    <img src="img/pptx.png" alt="Icono PPTX"> WEEK 2 TRADUCIDO
+                </button>
+                <button onclick="cambiarDocumento('https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/ASISTENCIAn.pdf&embedded=true')">
+                    <img src="img/pdf.png" alt="Icono PDF"> Nada
+                </button>
+                <button onclick="cambiarDocumento('https://docs.google.com/gview?url=https://seancuri.github.io/mi-portafolio/archivos/INFORMEn.pdf&embedded=true')">
+                    <img src="img/pdf.png" alt="Icono PDF"> Nada
+                </button>
+            </div>
+        </div>
 
-      <div class="iframe-container">
-          <div class="loading" id="loading">Cargando documento...</div>
-          <iframe id="visor"></iframe>
-      </div>
+        <div class="iframe-container">
+            <div class="loading" id="loading">Cargando documento...</div>
+            <iframe id="visor"></iframe>
+        </div>
     </div>
-
-    <script>
-      function toggleDropdown() {
-          const dropdown = document.getElementById("dropdownContent");
-          dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-      }
-
-      function cambiarDocumento(url) {
-          const visor = document.getElementById("visor");
-          const loading = document.getElementById("loading");
-          loading.style.display = "flex"; // Cambia a flex para centrar texto
-          visor.style.display = "none";
-          visor.src = url;
-
-          visor.onload = () => {
-              loading.style.display = "none";
-              visor.style.display = "block";
-          };
-      }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
